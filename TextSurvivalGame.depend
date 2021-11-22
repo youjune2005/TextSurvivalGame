@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1637602678 source:c:\users\youjune park\desktop\programming\textsurvivalgame\main.cpp
+	<stdio.h>
+	<time.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+
