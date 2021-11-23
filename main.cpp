@@ -12,6 +12,10 @@
 #define MAP_X 25
 #define MAP_Y 5
 
+int hp=50;
+int atk=15;
+int def=5;
+
 void gotoxy(int x, int y)
 {
     COORD CursorPosition = {x,y};
@@ -123,7 +127,9 @@ void game()
         }
         else
         {
+            system("cls");
             printf("´Ù¸¥ ¼ö°¡ ¶ä");
+            getch();
         }
     }
 
