@@ -71,7 +71,9 @@ int intro()
 
 void manual()
 {
+    gotoxy(MAP_X+6,MAP_Y);
     printf("당신은 빛의 검을 되찾아 마왕을 쓰러뜨려야 합니다.\n"
+           "\n"
            "HP: 당신의 생명력입니다. 남은 수치가 0이 되면, 사망합니다.\n"
            "AT: 당신의 공격력입니다. 수치가 높을수록 공격시 피해량이 증가합니다.\n"
            "DF: 당신의 방어력입니다. 수치가 높을수록 받는 피해량이 감소합니다.\n"
@@ -101,6 +103,7 @@ void game()
     {
         char playerch;
 
+        system("cls");
         printf("당신은 계속 전진합니다.\n");
         int k=rand()%100 + 1;
         getch();
@@ -119,9 +122,11 @@ void game()
                 system("cls");
                 printf("(몬스터)를 공격해 (피해량)의 피해를 입혔습니다!\n"
                        "(몬스터)의 공격으로 (피해량)의 피해를 입었습니다.\n");
+                getch();
             }
             else if(playerch='2')
             {
+                system("cls");
                 game();
             }
         }
