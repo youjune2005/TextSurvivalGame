@@ -3,9 +3,6 @@
 #include <conio.h>
 #include <windows.h>
 #include <string.h>
-#define GA 1
-#define BA 2
-#define BO 3
 #define START 1
 #define GAMEOVER -1
 #define HELP 0
@@ -130,11 +127,97 @@ void game()
                 game();
             }
         }
-        else
+        else if(k>=61&&k<=76)
         {
             system("cls");
-            printf("다른 수가 뜸");
+            printf("길을 가던 중, 무언가가 당신의 눈길을 사로잡습니다.\n"
+                   "(장비 이름)을(를) 발견했습니다!\n"
+                   "착용하시겠습니까?\n"
+                   "(착용하면, 기존의 착용하고 있던 장비를 버립니다)\n"
+                   "[1] 착용 [2] 버리기\n");
+            playerch=getch();
+            if(playerch=='1')
+            {
+                system("cls");
+                printf("(장비 이름)아이템을 착용하였습니다.");
+                getch();
+            }
+            else if(playerch='2')
+            {
+                system("cls");
+                printf("장비를 버리셨습니다.\n");
+                printf("아무 키를 눌러서 계속");
+                getch();
+                game();
+            }
+        }
+        else if(k>=77&&k<=88)
+        {
+            system("cls");
+            printf("당신은 아늑한 은신처를 발견했습니다!\n"
+                   "고통과 피로를 잠시 잊고, 편안한 휴식을 취합니다.\n"
+                   "(20% 최대 HP)의 HP를 회복했습니다.\n");
             getch();
+            game();
+        }
+        else if(k>=89&&k<=94)
+        {
+            system("cls");
+            printf("당신은 하루종일 돌아다녔지만, 잠시 쉴 곳도 찾지 못했습니다.\n"
+                   "(피해량)만큼의 체력이 소모되었습니다.\n");
+            getch();
+            game();
+        }
+        else if(k>=95&&k<=100)
+        {
+            system("cls");
+            printf("당신은 알 수 없는 신비한 기운에 이끌립니다.\n"
+                   "신비한 기운을 따라가자, 기이한 옷차림을 한 사람이 나타납니다.\n"
+                   "그는 자신을 주술사라고 소개하며, (20% 최대 HP)의 생명력을 주면 신비한 힘을 보여주겠다고 합니다.\n"
+                   "어떻게 하시겠습니까?\n"
+                   "[1] 거래한다 [2] 거절한다\n");
+            int rad=rand()%3 + 1;
+            playerch=getch();
+            if(playerch=='1')
+            {
+                system("cls");
+
+                if(rad==1)
+                {
+                    printf("당신은 주술사에게 생명력을 주겠다고 합니다.\n"
+                       "당신의 힘이 빠져나가고, 신비한 힘이 몸 안에서 느껴집니다.\n"
+                       "*(최대 HP의 20%) 만큼의 HP를 소모했습니다.\n"
+                       "체력이 (증가량)만큼 증가했습니다.\n");
+                    getch();
+                    game();
+                }
+                else if(rad==2)
+                {
+                    printf("당신은 주술사에게 생명력을 주겠다고 합니다.\n"
+                       "당신의 힘이 빠져나가고, 신비한 힘이 몸 안에서 느껴집니다.\n"
+                       "*(최대 HP의 20%) 만큼의 HP를 소모했습니다.\n"
+                       "공격력이 (증가량)만큼 증가했습니다.\n");
+                    getch();
+                    game();
+                }
+                else
+                {
+                    printf("당신은 주술사에게 생명력을 주겠다고 합니다.\n"
+                       "당신의 힘이 빠져나가고, 신비한 힘이 몸 안에서 느껴집니다.\n"
+                       "*(최대 HP의 20%) 만큼의 HP를 소모했습니다.\n"
+                       "방어력이 (증가량)만큼 증가했습니다.\n");
+                    getch();
+                    game();
+                }
+            }
+            else if(playerch='2')
+            {
+                system("cls");
+                printf("당신은 주술사의 제안을 거절합니다.\n"
+                        "당신은 아쉬워하는 표정의 주술사를 뒤로하고 길을 떠납니다.\n");
+                getch();
+                game();
+            }
         }
     }
 
